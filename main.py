@@ -49,6 +49,8 @@ def main():
         #vykreslí player objekt na screen
         # (použije definovanou metodu draw v Player class)
 
+        player.update(dt)
+
         #------------------------------------
         #------------------------------------
         pygame.display.flip()
@@ -56,3 +58,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+     #if projde pouze pokud je volán přímo main.py (jako main soubor)
