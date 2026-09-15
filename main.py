@@ -9,6 +9,7 @@ from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
 import sys
+from shot import Shot
 
 
 def main():
@@ -31,11 +32,13 @@ def main():
     drawable = pygame.sprite.Group()
     #grup na všechno s metodou draw
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
 
     Player.containers = (updatable, drawable)
     #přidání classy do group, takže nově vytvořené instance budou vždy součástí
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable)
+    Shot.containers = (shots, updatable, drawable)
 
     player = Player(x, y)
     #vytvoří objekt player se souřadnicemi středu obrazovky
