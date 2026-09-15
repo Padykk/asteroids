@@ -1,6 +1,5 @@
 import pygame
 
-
 # Base class for game objects
 class CircleShape(pygame.sprite.Sprite):
     # Sprite je jednoduchá class pro viditelné game objekty
@@ -24,3 +23,10 @@ class CircleShape(pygame.sprite.Sprite):
     def update(self, dt: float) -> None:
         # must override
         pass
+
+    def collides_with(self, other):
+        max_distance = self.radius + other.radius
+        distance = pygame.math.Vector2.distance_to(self.position, other.position)
+        if distance <= max_distance:
+            return True
+        return False
